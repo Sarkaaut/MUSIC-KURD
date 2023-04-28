@@ -52,7 +52,7 @@ async def ytsearch(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="کوژاندنەوە",
+                        text="سرێنە وە",
                         callback_data=f"forceclose abc|{message.from_user.id}",
                     ),
                 ]
