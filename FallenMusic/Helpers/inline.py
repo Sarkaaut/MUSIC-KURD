@@ -26,7 +26,7 @@ import config
 from FallenMusic import BOT_USERNAME
 
 close_key = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="• مسح •", callback_data="close")]]
+    [[InlineKeyboardButton(text="• سرێنە وە •", callback_data="close")]]
 )
 
 
@@ -45,20 +45,20 @@ buttons = InlineKeyboardMarkup(
 pm_buttons = [
     [
         InlineKeyboardButton(
-            text="‹ اضف البوت في مجموعتك ›",
+            text="‹ بۆتەکە زیاد بکە بۆ گروپەکەت ›",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         )
     ],
-    [InlineKeyboardButton(text="• اوامࢪ التشغيل •", callback_data="fallen_help")],
+    [InlineKeyboardButton(text="• فە رمانە کان •", callback_data="fallen_help")],
     [
-        InlineKeyboardButton(text="• سوࢪس سبايدࢪ •", url=config.SUPPORT_CHANNEL),
-        InlineKeyboardButton(text="• جࢪوب الدعم •", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="• کە ناڵی بۆت •", url=config.SUPPORT_CHANNEL),
+        InlineKeyboardButton(text="• گروپی بۆت •", url=config.SUPPORT_CHAT),
     ],
     [
         InlineKeyboardButton(
-            text="• مطوࢪ السورس •", url="https://t.me/WWWL5"
+            text="• خاوەنی بۆت •", url="https://t.me/WWWL5"
         ),
-        InlineKeyboardButton(text="• مالك البوت •", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="• خاوەنی بۆت •", user_id=config.OWNER_ID),
     ],
 ]
 
@@ -66,19 +66,19 @@ pm_buttons = [
 gp_buttons = [
     [
         InlineKeyboardButton(
-            text="‹ اضف البوت في مجموعتك ›",
+            text="‹ بۆتەکە زیاد بکە بۆ گروپەکەت ›",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         )
     ],
     [
-        InlineKeyboardButton(text="• سوࢪس سبايدࢪ •", url=config.SUPPORT_CHANNEL),
-        InlineKeyboardButton(text="• جࢪوب الدعم •", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="• کە ناڵی بۆت •", url=config.SUPPORT_CHANNEL),
+        InlineKeyboardButton(text="• گروپی بۆت •", url=config.SUPPORT_CHAT),
     ],
     [
         InlineKeyboardButton(
-            text="• مطوࢪ السورس •", url="https://t.me/WWWL5"
+            text="• خاوەنی بۆت •", url="https://t.me/WWWL5"
         ),
-        InlineKeyboardButton(text="• مالك البوت •", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="• خاوەنی بۆت •", user_id=config.OWNER_ID),
     ],
 ]
 
@@ -86,25 +86,25 @@ gp_buttons = [
 helpmenu = [
     [
         InlineKeyboardButton(
-            text="• اوامࢪ التشغيل •",
+            text="• فە رمانە کان •",
             callback_data="fallen_cb help",
         )
     ],
     [
-        InlineKeyboardButton(text="• اوامࢪ المطور •", callback_data="fallen_cb sudo"),
-        InlineKeyboardButton(text="• اوامࢪ المالك •", callback_data="fallen_cb owner"),
+        InlineKeyboardButton(text="• گەشەپێدەرە •", callback_data="fallen_cb sudo"),
+        InlineKeyboardButton(text="• سە روک بۆت •", callback_data="fallen_cb owner"),
     ],
     [
-        InlineKeyboardButton(text="• ࢪجوع •", callback_data="fallen_home"),
-        InlineKeyboardButton(text="• مسح •", callback_data="close"),
+        InlineKeyboardButton(text="• گە رانە وە •", callback_data="fallen_home"),
+        InlineKeyboardButton(text="• سرێنە وە •", callback_data="close"),
     ],
 ]
 
 
 help_back = [
-    [InlineKeyboardButton(text="• جࢪوب الدعم •", url=config.SUPPORT_CHAT)],
+    [InlineKeyboardButton(text="• گروپی بۆت •", url=config.SUPPORT_CHAT)],
     [
-        InlineKeyboardButton(text="• ࢪجوع •", callback_data="fallen_help"),
-        InlineKeyboardButton(text="• مسح •", callback_data="close"),
+        InlineKeyboardButton(text="• گە رانە وە •", callback_data="fallen_help"),
+        InlineKeyboardButton(text="• سرێنە وە •", callback_data="close"),
     ],
 ]
