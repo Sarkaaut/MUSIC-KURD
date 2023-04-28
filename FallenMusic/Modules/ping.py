@@ -60,7 +60,7 @@ async def ping_fallen(_, message: Message):
                     InlineKeyboardButton("گروپی بۆت", url=config.SUPPORT_CHAT),
                     InlineKeyboardButton(
                         "کە ناڵی بۆت",
-                        url="https://t.me/EE_20",
+                        url="https://t.me/ChanallBots",
                     ),
                 ],
             ]
