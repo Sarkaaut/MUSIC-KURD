@@ -37,7 +37,6 @@ buttons = InlineKeyboardMarkup(
             InlineKeyboardButton(text="⏸", callback_data="pause_cb"),
             InlineKeyboardButton(text="⏭️", callback_data="skip_cb"),
             InlineKeyboardButton(text="⏹", callback_data="end_cb"),
-            InlineKeyboardButton(text="• گەشەپێدەرە •", callback_data="fallen_cb sudo"),
         ]
      ]
  )
