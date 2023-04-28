@@ -1,5 +1,5 @@
-![Super-Music](https://telegra.ph/file/ba5e50feaff3c2bbde984.jpg)
-# 𝗠𝗨𝗦𝗜𝗖 𝗦𝗣𝗜𝗗𝗘𝗥
+![Super-Music](https://telegra.ph/file/9ae65655540f3f71fcd35.jpg)
+# Bot Music Kurd
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Baxerbin+Bo+Bote-Music+Kurdish+)](https://github.com/FM8Y/Super-Music)
 
