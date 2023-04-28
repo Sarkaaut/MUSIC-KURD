@@ -60,12 +60,12 @@ from FallenMusic.Helpers.thumbnails import gen_qthumb, gen_thumb
 
 
 @app.on_message(
-    filters.command(["play", "p", "gorani"]) | filters.command(["و","گ","گورانی"],prefixes= ["/", "!","","#"])
+    filters.command(["play", "شغل", "تشغيل"]) | filters.command(["تشغيل","شغل","ش"],prefixes= ["/", "!","","#"])
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def play(_, message: Message):
-    fallen = await message.reply_text(" لە هێنان دایە چاوە ڕوان بە 🔄")
+    fallen = await message.reply_text("لە هێنان دایە چاوە ڕوان بە 🔄")
     try:
         await message.delete()
     except:
@@ -76,21 +76,21 @@ async def play(_, message: Message):
             get = await app.get_chat_member(message.chat.id, ASS_ID)
         except ChatAdminRequired:
             return await fallen.edit_text(
-                f"⎊ مۆڵەتم پێ بدە هه تا بتوانم یارمەتیدەرەکە زياد بكه م {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                f"⎊ مۆڵەتم پێ بدە بۆ زیادکردن بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
             )
         if get.status == ChatMemberStatus.BANNED:
             unban_butt = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text=f"هەڵوەشاندنەوەی باند{ASS_NAME}",
+                            text=f"هەڵوەشاندنەوەی باند {ASS_NAME}",
                             callback_data=f"unban_assistant {message.chat.id}|{ASS_ID}",
                         ),
                     ]
                 ]
             )
             return await fallen.edit_text(
-                text=f"⎊ {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n ⎊ئایدی : `{ASS_ID}`\n⎊ ناوە کە : {ASS_MENTION}\n⎊ ناسنامە : @{ASS_USERNAME}\n\n⎊ باندی ئەکاونتی یاریدەدەرەکە لابە ن...",
+                text=f"⎊ {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n⎊ ئایدی : `{ASS_ID}`\n⎊ آلآسم : {ASS_MENTION}\n⎊ ناسنامە : @{ASS_USERNAME}\n\n⎊ باندی ئەکاونتی یاریدەدەرەکە لابە ن هه تا بۆتە کە بتوانی چالاک ببێت",
                 reply_markup=unban_butt,
             )
     except UserNotParticipant:
@@ -105,11 +105,11 @@ async def play(_, message: Message):
                 invitelink = await app.export_chat_invite_link(message.chat.id)
             except ChatAdminRequired:
                 return await fallen.edit_text(
-                    f"⎊ مۆڵەتم پێ بدە هه تا بتوانم یارمەتیدەرەکە زياد بكه م {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                    f"⎊ مۆڵەتم پێ بدە بۆ زیادکردن بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
                 )
             except Exception as ex:
                 return await fallen.edit_text(
-                    f"بانگهێشتنامەکە شکستی هێنا {BOT_NAME} یاریدەدەرەکە {message.chat.title}.\n\n** هۆکار :** `{ex}`"
+                    f"بانگهێشتنامەکە شکستی هێنا {BOT_NAME} یاریدەدەرەکە {message.chat.title}.\n\n**هۆکار :** `{ex}`"
                 )
         if invitelink.startswith("https://t.me/+"):
             invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
@@ -120,13 +120,13 @@ async def play(_, message: Message):
             await app2.join_chat(invitelink)
             await asyncio.sleep(2)
             await fallen.edit_text(
-                f"{ASS_NAME} ⎊ بەشداری کردووە ✅,\n\n⎊ دەستپێکردن..."
+                f"{ASS_NAME} ⎊ بەشداری کردووە ✅,\n\n⎊ دەستپێکردن"
             )
         except UserAlreadyParticipant:
             pass
         except Exception as ex:
             return await fallen.edit_text(
-                f"بانگهێشتنامەکە شکستی هێنا {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}.\n\n** هۆکار :** `{ex}`"
+                f"بانگهێشتنامەکە شکستی هێنا {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}.\n\n**هۆکار :** `{ex}`"
             )
         try:
             await app2.resolve_peer(invitelink)
@@ -168,7 +168,7 @@ async def play(_, message: Message):
                 secmul *= 600
 
         except Exception as e:
-            return await fallen.edit_text(f"هە ڵە یە ک هه یە \n\n** هەڵە :** `{e}`")
+            return await fallen.edit_text(f"هناك خطأ\n\n**ايرور :** `{e}`")
 
         if (dur / 600) > DURATION_LIMIT:
             return await fallen.edit_text(
@@ -178,7 +178,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await fallen.edit_text("⎊ ناوی گۆرانییەکە بنووسە 🎧")
-        await fallen.edit_text("لە هێنان دایە چاوە ڕوان بە 🔄")
+        await fallen.edit_text("چاوە روان بە 🔄")
         query = message.text.split(None, 1)[1]
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -194,7 +194,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             LOGGER.error(str(e))
-            return await fallen.edit("⎊ پرۆسێسکردن شکستی هێنا، دووبارە هەوڵبدەرەوە...")
+            return await fallen.edit("⎊ پرۆسێسکردن شکستی هێنا، دووبارە هەوڵبدەرەوە")
 
         if (dur / 600) > DURATION_LIMIT:
             return await fallen.edit(
@@ -220,7 +220,7 @@ async def play(_, message: Message):
         qimg = await gen_qthumb(videoid, message.from_user.id)
         await message.reply_photo(
             photo=qimg,
-            caption=f"**⎊ زیادکراوە بۆ لیستی چاوەڕوانی لە {position}**\n\n⎊ ** ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ ** ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن:** {ruser}",
+            caption=f"**⎊ زیادکراوە بۆ لیستی چاوەڕوانی لە {position}**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لەلایەن :** {ruser}",
             reply_markup=buttons,
         )
     else:
@@ -234,15 +234,15 @@ async def play(_, message: Message):
 
         except NoActiveGroupCall:
             return await fallen.edit_text(
-                "**⎊ سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⎊ تکایە دڵنیابن لە کردنەوەی پە یوە ندی کە چاتەکە**"
+                "**⎊ سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⎊ تکایە دڵنیابە لە کردنەوەی تیڵ گروپ**"
             )
         except TelegramServerError:
             return await fallen.edit_text(
-                "⎊ کێشەیەک هەبوو هەوڵبدە پە یوە ندی کە دابخەیت و دووبارە بکەیتەوە"
+                "⎊ کێشەیەک هەبوو هەوڵبدە تیڵە کە دابخەیت و دووبارە بکەیتەوە"
             )
         except UnMuteNeeded:
             return await fallen.edit_text(
-                f"⎊  {BOT_NAME}  ئەکاونتی یاریدەدەرەکە بێدەنگ کراوە,\n\n تکایە ئەکاونتی یاریدەدەرەکە بێدەنگی بکەرەوە{ASS_MENTION} وە دووبارە هەوڵبدەرەوە"
+                f"⎊ {BOT_NAME} الحساب المساعد مكتوم,\n\nتکایە ئەکاونتی یاریدەدەرەکە بێدەنگی بکەرەوە {ASS_MENTION} وە دووبارە هەوڵبدەرەوە"
             )
 
         imgt = await gen_thumb(videoid, message.from_user.id)
@@ -250,7 +250,7 @@ async def play(_, message: Message):
         await add_active_chat(message.chat.id)
         await message.reply_photo(
             photo=imgt,
-            caption=f"‌‌‏‌‌‏≪⊶⌯━‌‌‏𖧊 ⦓ ᥉ρᎥժᥱᖇ ⦔ 𖧊━‌‌‏⌯⊷≫\n**⎊ جالاک کراوە 🎧**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {ruser}\n‌‌‏‌‌‏≪⊶⌯━‌‌‏𖧊 ⦓ ᥉ρᎥժᥱᖇ ⦔ 𖧊━‌‌‏⌯⊷≫",
+            caption=f"‌‌**⎊ چالاک کراوە 🎧**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **المده :** `{duration}` خولەک\n⎊ **لە لایە ن :** {ruser}",
             reply_markup=buttons,
         )
 
