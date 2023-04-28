@@ -242,7 +242,7 @@ async def play(_, message: Message):
             )
         except UnMuteNeeded:
             return await fallen.edit_text(
-                f"⎊ {BOT_NAME} الحساب المساعد مكتوم,\n\nتکایە ئەکاونتی یاریدەدەرەکە بێدەنگی بکەرەوە {ASS_MENTION} وە دووبارە هەوڵبدەرەوە"
+                f"⎊ {BOT_NAME} یاریدەدەرەکە بێدە نگ کراوە,\n\nتکایە ئەکاونتی یاریدەدەرەکە بێدەنگی بکەرەوە {ASS_MENTION} وە دووبارە هەوڵبدەرەوە"
             )
 
         imgt = await gen_thumb(videoid, message.from_user.id)
