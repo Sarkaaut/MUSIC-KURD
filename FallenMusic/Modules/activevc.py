@@ -28,9 +28,9 @@ from FallenMusic.Helpers.active import get_active_chats
 from FallenMusic.Helpers.inline import close_key
 
 
-@app.on_message(filters.command("activevc") | filters.command(["المكالمات","النشطه"],prefixes= ["/", "!","","#"]) & SUDOERS)
+@app.on_message(filters.command("activevc") | filters.command(["پەیوەندی دەکات","چالاک"],prefixes= ["/", "!","","#"]) & SUDOERS)
 async def activevc(_, message: Message):
-    mystic = await message.reply_text("⎊ جاري جلب المكالمات ⚡")
+    mystic = await message.reply_text("⎊ پەیوەندییەکان وەرگیراون ⚡")
     chats = await get_active_chats()
     text = ""
     j = 0
@@ -38,7 +38,7 @@ async def activevc(_, message: Message):
         try:
             title = (await app.get_chat(chat)).title
         except Exception:
-            title = "ᴩʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
+            title = "چاتی تایبە ت"
         if (await app.get_chat(chat)).username:
             user = (await app.get_chat(chat)).username
             text += f"<b>{j + 1}.</b>  [{title}](https://t.me/{user})\n"
@@ -46,10 +46,10 @@ async def activevc(_, message: Message):
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
         j += 1
     if not text:
-        await mystic.edit_text("⎊ لا يـوجد مكالمات في الوقت الحالي")
+        await mystic.edit_text("⎊ لەم کاتەدا هیچ پەیوەندییەک نییە")
     else:
         await mystic.edit_text(
-            f"**قائمة المكالمات الشغالة :**\n\n{text}",
+            f"**لیستی پەیوەندییە چالاکەکان :**\n\n{text}",
             reply_markup=close_key,
             disable_web_page_preview=True,
         )
