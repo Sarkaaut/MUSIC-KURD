@@ -37,9 +37,10 @@ buttons = InlineKeyboardMarkup(
             InlineKeyboardButton(text="⏸", callback_data="pause_cb"),
             InlineKeyboardButton(text="⏭️", callback_data="skip_cb"),
             InlineKeyboardButton(text="⏹", callback_data="end_cb"),
+            InlineKeyboardButton(text="• گەشەپێدەرە •", callback_data="fallen_cb sudo"),
         ]
-    ]
-)
+     ]
+ )
 
 
 pm_buttons = [
@@ -56,7 +57,7 @@ pm_buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="• خاوەنی بۆت •", url="https://t.me/WWWL5"
+            text="• خاوەنی بۆت •", url="https://t.me/SARKAUT"
         ),
         InlineKeyboardButton(text="• خاوەنی بۆت •", user_id=config.OWNER_ID),
     ],
@@ -76,7 +77,7 @@ gp_buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="• خاوەنی بۆت •", url="https://t.me/WWWL5"
+            text="• خاوەنی بۆت •", url="https://t.me/SARKAUT"
         ),
         InlineKeyboardButton(text="• خاوەنی بۆت •", user_id=config.OWNER_ID),
     ],
