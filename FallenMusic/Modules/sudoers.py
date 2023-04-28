@@ -46,7 +46,7 @@ async def sudoadd(_, message: Message):
             return await message.reply_text(f"⎊ {user.mention} لە ئێستاوە گەشەپێدەری بۆتەکە یە")
         try:
             SUDOERS.add(int(user.id))
-            await message.reply_text(f"تم {user.mention} لەلایەن گەشەپێدەرێکەوە زیادکراوە.")
+            await message.reply_text(f"تەواو بوو {user.mention} لەلایەن گەشەپێدەرێکەوە زیادکراوە.")
         except:
             return await message.reply_text("⎊ منیش لەوەدا شکستم هێنا.")
 
