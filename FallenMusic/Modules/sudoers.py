@@ -27,7 +27,7 @@ from config import OWNER_ID
 from FallenMusic import SUDOERS, app
 
 
-@app.on_message(filters.command(["addsudo"]) | filters.command(["رفع مطور","مط","ترقيه","م"],prefixes= ["/", "!","","#"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["addsudo"]) | filters.command(["بەرزکەرەوەی گەشەپێدەر","مط","بەرزکردنەوە","بە"],prefixes= ["/", "!","","#"]) & filters.user(OWNER_ID))
 async def sudoadd(_, message: Message):
     try:
         await message.delete()
@@ -36,34 +36,34 @@ async def sudoadd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             return await message.reply_text(
-                "⎊ اعمل ريب عليه او اكتب الايدي او يوزره جنب الامر"
+                "⎊ گومانی لێ بکە، ئایدیە کان بنووسە، یان لە تەنیشت بابەتەکەوە بەکاری بهێنە"
             )
         user = message.text.split(None, 1)[1]
         if "@" in user:
             user = user.replace("@", "")
         user = await app.get_users(user)
         if int(user.id) in SUDOERS:
-            return await message.reply_text(f"⎊ {user.mention} هو بالفعل مطور فى البوت.")
+            return await message.reply_text(f"⎊ {user.mention} لە ئێستاوە گەشەپێدەری بۆتەکە یە")
         try:
             SUDOERS.add(int(user.id))
-            await message.reply_text(f"تم {user.mention} اضافته مطور.")
+            await message.reply_text(f"تم {user.mention} لەلایەن گەشەپێدەرێکەوە زیادکراوە.")
         except:
-            return await message.reply_text("⎊ انا فشلت في دي كمان.")
+            return await message.reply_text("⎊ منیش لەوەدا شکستم هێنا.")
 
     if message.reply_to_message.from_user.id in SUDOERS:
         return await message.reply_text(
-            f"⎊ {message.reply_to_message.from_user.mention} هو بالفعل مطور في البوت"
+            f"⎊ {message.reply_to_message.from_user.mention} لە ئێستاوە گەشەپێدەری بۆتەکە یە"
         )
     try:
         SUDOERS.add(message.reply_to_message.from_user.id)
         await message.reply_text(
-            f"تم اضافة {message.reply_to_message.from_user.mention} في قائمة المطورين"
+            f"تم اضافة {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەران"
         )
     except:
-        return await message.reply_text("ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴅᴅ ᴜsᴇʀ ɪɴ sᴜᴅᴏᴇʀs.")
+        return await message.reply_text("شکستی هێنا لە زیادکردنی بەکارهێنەری گە شە پێدە ری نویی")
 
 
-@app.on_message(filters.command(["delsudo", "rmsudo"]) | filters.command(["تك","تنزيل","تنزيل مطور"],prefixes= ["/", "!","","#"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["delsudo", "rmsudo"]) | filters.command(["da","dabazandn","دابەزاندنی گەشەپێدەر"],prefixes= ["/", "!","","#"]) & filters.user(OWNER_ID))
 async def sudodel(_, message: Message):
     try:
         await message.delete()
@@ -72,7 +72,7 @@ async def sudodel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             return await message.reply_text(
-                "⎊ الرد على رسالة المستخدم أو كتابة يوزره جمب الامر "
+                "⎊ وەڵامی پەیامی بەکارهێنەر بدەرەوە یان کۆپییەکی لێ بنووسە "
             )
         user = message.text.split(None, 1)[1]
         if "@" in user:
@@ -80,33 +80,33 @@ async def sudodel(_, message: Message):
         user = await app.get_users(user)
         if int(user.id) not in SUDOERS:
             return await message.reply_text(
-                f"⎊ {user.mention} ليس في قائمة المطورين"
+                f"⎊ {user.mention} لە لیستی گەشەپێدەراندا نییە"
             )
         try:
             SUDOERS.remove(int(user.id))
             return await message.reply_text(
-                f"⎊ إزالة  {user.mention} من قائمة المطورين ."
+                f"⎊ إزالة  {user.mention} لە لیستی گەشەپێدەران "
             )
         except:
-            return await message.reply_text(f"فشل إزالة المستخدم من المطوىين.")
+            return await message.reply_text(f"شکستی هێنا لە دەرهێنانی بەکارهێنەر لە تاوەکان")
     else:
         user_id = message.reply_to_message.from_user.id
         if int(user_id) not in SUDOERS:
             return await message.reply_text(
-                f"⎊ {message.reply_to_message.from_user.mention} ليس في قائمة المطورين ."
+                f"⎊ {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەراندا نییە"
             )
         try:
             SUDOERS.remove(int(user_id))
             return await message.reply_text(
-                f"⎊ ليس {message.reply_to_message.from_user.mention} من قائمة المطورين."
+                f"⎊ ليس {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەران"
             )
         except:
-            return await message.reply_text(f"فشل إزالة المستخدم من قائمة المطورين.")
+            return await message.reply_text(f"شکستی هێنا لە لابردنی بەکارهێنەر لە لیستی گەشەپێدەران")
 
 
-@app.on_message(filters.command(["sudolist", "sudoers", "sudo"]) | filters.command(["المطورين","قائمه المطورين"],prefixes= ["/", "!","","#"]))
+@app.on_message(filters.command(["sudolist", "sudoers", "sudo"]) | filters.command(["گەشەپێدەران","لیستی گەشەپێدەران"],prefixes= ["/", "!","","#"]))
 async def sudoers_list(_, message: Message):
-    hehe = await message.reply_text("⎊ جارٍ الحصول على قائمة المطورين...")
+    hehe = await message.reply_text("⎊ بەدەستهێنانی لیستی گەشەپێدەران...")
     text = "<u>⎊ **المالك :**</u>\n"
     count = 0
     user = await app.get_users(OWNER_ID)
@@ -121,12 +121,12 @@ async def sudoers_list(_, message: Message):
                 user = user.first_name if not user.mention else user.mention
                 if smex == 0:
                     smex += 1
-                    text += "\n<u>⎊ **المساعد :**</u>\n"
+                    text += "\n<u>⎊ **یاریدەدەرەکە :**</u>\n"
                 count += 1
                 text += f"{count}➤ {user}\n"
             except Exception:
                 continue
     if not text:
-        await message.reply_text("⎊ لم يتم العثور  على قائمة المطورين .")
+        await message.reply_text("⎊ لیستی گەشەپێدەران نەدۆزرایەوە")
     else:
         await hehe.edit_text(text)
