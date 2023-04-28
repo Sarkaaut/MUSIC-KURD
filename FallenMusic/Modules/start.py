@@ -31,7 +31,7 @@ from FallenMusic.Helpers import gp_buttons, pm_buttons
 from FallenMusic.Helpers.dossier import *
 
 
-@app.on_message(filters.command(["start"]) | filters.command(["الاوامر","اوامر"],prefixes= ["/", "!","","#"]) & ~filters.forwarded)
+@app.on_message(filters.command(["start"]) | filters.command(["فە رمانە کان","help"],prefixes= ["/", "!","","#"]) & ~filters.forwarded)
 @app.on_edited_message(filters.command(["start"]) & ~filters.forwarded)
 async def fallen_st(_, message: Message):
     if message.chat.type == ChatType.PRIVATE:
@@ -52,23 +52,23 @@ async def fallen_st(_, message: Message):
                     link = result["link"]
                     published = result["publishedTime"]
                 searched_text = f"""
-⎊ **تتبع المعلومات ** 
+⎊ **زانیارییەکانی بەدواداچوون ** 
 
-⎊ **العنوان :** {title}
+⎊ **ناونیشانەکە :** {title}
 
-⎊ **المدة :** {duration} دقيقة
-⎊ **الآراء :** `{views}`
-⎊ **نشرت في :** {published}
-⎊ **الرابط :** [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})
+⎊ **ماوە :** {duration} خولەک
+⎊ **بۆچوونەکان :** `{views}`
+⎊ **بڵاوکردەوە لە :** {published}
+⎊ **لینک :** [لە یوتیوب سەیری بکەن]({link})
 ⎊ **القناة :** [{channel}]({channellink})
 
-⎊ بحث بواسطة {BOT_NAME}"""
+⎊ گەڕان بە {BOT_NAME}"""
                 key = InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(text="يوتيوب", url=link),
                             InlineKeyboardButton(
-                                text="جࢪوب الدعم", url=config.SUPPORT_CHAT
+                                text="گروپی بۆت", url=config.SUPPORT_CHAT
                             ),
                         ],
                     ]
