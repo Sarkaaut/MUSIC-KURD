@@ -29,33 +29,33 @@ from FallenMusic import BOT_NAME, app
 
 
 @app.on_message(
-    filters.command(["config", "variables"]) | filters.command(["الحاجات","الفارات","الايبهات","كونفنج"],prefixes= ["/", "!","","#"]) & filters.user(config.OWNER_ID)
+    filters.command(["config", "variables"]) | filters.command(["پێویستیەکان","token","api id","كونفنج"],prefixes= ["/", "!","","#"]) & filters.user(config.OWNER_ID)
 )
 async def get_vars(_, message: Message):
     try:
         await app.send_message(
             chat_id=int(config.OWNER_ID),
-            text=f"""<u>**{BOT_NAME} ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs :**</u>
+            text=f"""<u>**{BOT_NAME} گۆڕاوەی ڕێکخستن :**</u>
 
-**ايبي ايدي :** `{config.API_ID}`
-**ايبي هاش :** `{config.API_HASH}`
+**ئایبی ئایدی :** `{config.API_ID}`
+**ئایبی هاش :** `{config.API_HASH}`
 
-**توكن البوت :** `{config.BOT_TOKEN}`
-**حد المدة :** `{config.DURATION_LIMIT}`
+**تۆکن بۆت :** `{config.BOT_TOKEN}`
+**سنووری ماوەی کارکردن :** `{config.DURATION_LIMIT}`
 
-**ايدي المالك :** `{config.OWNER_ID}`
-**سودو يوزر :** `{config.SUDO_USERS}`
+**ئایدی خاوە ن :** `{config.OWNER_ID}`
+**ئایدی ئاکاونت یارمە تێدەر :** `{config.SUDO_USERS}`
 
-**بنج :** `{config.PING_IMG}`
-**بدأ :** `{config.START_IMG}`
-**جروب الدعم :** `{config.SUPPORT_CHAT}`
+**پینگ :** `{config.PING_IMG}`
+**لەوە دەچێت :** `{config.START_IMG}`
+**گروپی بۆت :** `{config.SUPPORT_CHAT}`
 
-**الجلسة :** `{config.SESSION}`""",
+**کود تیرموکس :** `{config.SESSION}`""",
             disable_web_page_preview=True,
         )
     except:
-        return await message.reply_text("⎊ فشل في إرسال متغيرات التكوين .")
+        return await message.reply_text("⎊ شکستی هێنا لە ناردنی گۆڕاوە ڕێکخستنەکان")
     if message.chat.type != ChatType.PRIVATE:
         await message.reply_text(
-            "⎊ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴘᴍ, ɪ'ᴠᴇ sᴇɴᴛ ᴛʜᴇ ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs ᴛʜᴇʀᴇ."
+            "⎊ تکایە pm ـەکەت بپشکنە من گۆڕاوە ڕێکخستنەکانم لەوێ ناردووە"
         )
