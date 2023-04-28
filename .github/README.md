@@ -1,7 +1,7 @@
 ![Super-Music](https://telegra.ph/file/ba5e50feaff3c2bbde984.jpg)
 # 𝗠𝗨𝗦𝗜𝗖 𝗦𝗣𝗜𝗗𝗘𝗥
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=WELCOME+TO+MUSIC-SPIDER+AN+ADVANCE+BOT)](https://github.com/FM8Y/Super-Music)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Baxerbin+Bo+Bote-Music+Kurdish+)](https://github.com/FM8Y/Super-Music)
 
 <p align="center">
     ─「 sᴜᴩᴩᴏʀᴛ 」─
