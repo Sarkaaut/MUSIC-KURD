@@ -1,7 +1,7 @@
 {
-    "name": "𝙎𝙤𝙐𝙍𝙘𝙀 𝙎𝙋𝙞𝙙𝙀𝙍 𝄞",
-    "description": "اللهم صلي علي سيدنا محمد 🌺",
-    "logo": "https://telegra.ph/file/ba5e50feaff3c2bbde984.jpg",
+    "name": "Bot Music Kurd",
+    "description": "اللهم صلي علي سيدنا محمد ❤️🖇️",
+    "logo": "https://telegra.ph/file/9ae65655540f3f71fcd35.jpg",
     "keywords": [
     "python3",
     "telegram",
@@ -13,37 +13,37 @@
     "env": {
       "API_ID": {
         "description": " ضـع ايبي ايدي احصل علية من هنا https://my.telegram.org",
-        "value": "",
+        "value": "21917554",
         "required": true
       },
       "API_HASH": {
         "description": " ضـع ايبي هاش احصل علية من هنا https://my.telegram.org",
-        "value": "",
+        "value": "13684d4d35d48e1375cd090d2c27cb68",
         "required": true
       },
       "BOT_TOKEN": {
         "description": "ضـع تـوكـن بـوتـك هـنـا",
-        "value": "",
+        "value": "5999410466:AAGD4jOlTyO0BLey1if4EE-U8c3gpY6wiVQ",
         "required": true
       },
       "OWNER_ID": {
         "description": "ضـع ايـديـك هـنـا",
-        "value": "",
+        "value": "5789819429",
         "required": true
       },
       "SESSION": {
         "description": "ضـع جلسة البايروجرام احصل عليها من هنا @UU2xbot",
-        "value": "",
+        "value": "AgAsT3TJOLx7hoeIdsTGilkT-m-T64yXA6rcg6T6Yb2r-T_iDEuTMXMvVPJ4SIA12vRvvHfIHu8JeC0UrRrsVmqMhNK-EvkhInzZ9ytzn_THB2SBMHAqk9hemGtwfK9GvyKacUckZAQHbu0SJROzhtsgncLtkL9NsS9JTjsCDo27hExOC587Ox8JrZ-4coIAkTk8yHPEkKn8OOgiqKXYBxnkMRsmp8bVD53E4elk-Ffm1vLX3ZQNVxFk6utXmw_PBNkhMr0-bO4I1S1ROWnBDqdIOX8yGJ0TSpTgPxL6XShy7NWZu-EPr1TZpRaveYdT-xpCHGkLjDfyXkfRMS862DhIAAAAAU8Mzg0A",
         "required": true
       },
       "SUDO_USERS": {
         "description": "ضـع ايـدي الـحـسـاب الـمـسـاعـد",
-        "value": "",
+        "value": "5621206541",
         "required": true
       },
       "SUPPORT_CHAT": {
         "description": "ضـع رابـط جـروب الـدعـم",
-        "value": "https://t.me/EE_47",
+        "value": "https://t.me/Gruop_Shetakan",
         "required": false
       }
     },
