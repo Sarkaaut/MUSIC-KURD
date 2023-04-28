@@ -92,8 +92,8 @@ async def fallen_startup():
     ASS_USERNAME = getme2.username
     ASS_MENTION = getme2.mention
     try:
-        await app2.join_chat("EE_47")
-        await app2.join_chat("EE_20")
+        await app2.join_chat("gruop_bots")
+        await app2.join_chat("gruop_bots")
     except:
         pass
 
