@@ -32,13 +32,13 @@ from youtube_search import YoutubeSearch
 from FallenMusic import BOT_MENTION, BOT_USERNAME, LOGGER, app
 
 
-@app.on_message(filters.command(["song", "vsong", "video", "music"]) | filters.command(["تحميل","فيديو","صوت"],prefixes= ["/", "!","","#"]))
+@app.on_message(filters.command(["song", "vsong", "video", "music"]) | filters.command(["دابەزاندن","ڤیدیۆ","دە نگ"],prefixes= ["/", "!","","#"]))
 async def song(_, message: Message):
     try:
         await message.delete()
     except:
         pass
-    m = await message.reply_text("⎊ جارٍ التحميل...")
+    m = await message.reply_text("⎊ کە میک چاوە روان بن...")
 
     query = "".join(" " + str(i) for i in message.command[1:])
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
@@ -55,16 +55,16 @@ async def song(_, message: Message):
     except Exception as ex:
         LOGGER.error(ex)
         return await m.edit_text(
-            f"فشل إحضار المسار من ʏᴛ-ᴅʟ.\n\n**السبب :** `{ex}`"
+            f"شکستی هێنا لە وەرگرتنی ڕێگاکە لە \n\n**هوکار :** `{ex}`"
         )
 
-    await m.edit_text("⎊ جارٍ التحميل انتظر,\n\n⎊ بواسطه ‌SPIDER..")
+    await m.edit_text("⎊ لە دابە زین دایە چاوەڕێ بکە,\n\n⎊ لە لایە ن ‌SPIDER..")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"⎊ **العنوان :** [{title[:23]}]({link})\n⎊ **المده :** `{duration}`\n⎊ ** بواسطة :** {BOT_MENTION}"
+        rep = f"⎊ **العنوان :** [{title[:23]}]({link})\n⎊ **ماوە :** `{duration}`\n⎊ ** لە لایە ن :** {BOT_MENTION}"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -91,26 +91,26 @@ async def song(_, message: Message):
             )
             if message.chat.type != ChatType.PRIVATE:
                 await message.reply_text(
-                    "يرجى التحقق من أن المسؤول قد أرسل الأغنية المطلوبة."
+                    "تکایە بزانە کە بەڕێوەبەر گۆرانی داواکراوەکەی پێشکەش کردووە"
                 )
         except:
             start_butt = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="اضغط هنا",
+                            text="لێرەدا فشار بکە",
                             url=f"https://t.me/{BOT_USERNAME}?start",
                         )
                     ]
                 ]
             )
             return await m.edit_text(
-                text="اضغط فوق الزر أدناه وابدأ في تنزيل الأغاني",
+                text="کلیک لەم دوگمەیەی خوارەوە بکە و دەست بکە بە دابەزاندنی گۆرانییەکان",
                 reply_markup=start_butt,
             )
         await m.delete()
     except:
-        return await m.edit_text("فشل تحميل الصوت على الخادم")
+        return await m.edit_text("شکستی هێنا لە بارکردنی دەنگەکە بۆ سەر سێرڤەر")
 
     try:
         os.remove(audio_file)
