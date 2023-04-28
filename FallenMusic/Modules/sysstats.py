@@ -36,10 +36,10 @@ from FallenMusic import BOT_NAME, SUDOERS, app
 from FallenMusic.Modules import ALL_MODULES
 
 
-@app.on_message(filters.command(["stats", "sysstats"]) | filters.command(["الحاله","الاحصائيات"],prefixes= ["/", "!","","#"]) & SUDOERS)
+@app.on_message(filters.command(["stats", "sysstats"]) | filters.command(["بارودۆخه‌كه‌","ئامارەکان"],prefixes= ["/", "!","","#"]) & SUDOERS)
 async def sys_stats(_, message: Message):
     sysrep = await message.reply_text(
-        f"ɢᴇᴛᴛɪɴɢ {BOT_NAME} sʏsᴛᴇᴍ sᴛᴀᴛs, ɪᴛ'ʟʟ ᴛᴀᴋᴇ ᴀ ᴡʜɪʟᴇ..."
+        f"ɢᴇᴛᴛɪɴɢ {BOT_NAME} System Start it Ll Take A While..."
     )
     try:
         await message.delete()
@@ -63,7 +63,7 @@ async def sys_stats(_, message: Message):
         else:
             cpu_freq = f"{round(cpu_freq, 2)}ᴍʜᴢ"
     except:
-        cpu_freq = "ғᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ"
+        cpu_freq = "شکستی هێنا لە هێنانی"
     hdd = psutil.disk_usage("/")
     total = hdd.total / (1024.0**3)
     total = str(total)
@@ -76,37 +76,37 @@ async def sys_stats(_, message: Message):
 
     await sysrep.edit_text(
         f"""
-⎊ <u>**{BOT_NAME} احصائيات النظام **</u>
+⎊ <u>**{BOT_NAME} ئاماری سیستەم **</u>
 
-**بايثون :** {pyver.split()[0]}
-**بايروجرام :** {pyrover}
-**مكالمات بي تي جي :** {pytgver}
-**سودورز :** `{sudoers}`
-**الوحدات :** `{mod}`
+**پایتۆن :** {pyver.split()[0]}
+**پیرۆگرام :** {pyrover}
+**پەیوەندییەکانی بی تی جی :** {pytgver}
+**سۆدۆرس :** `{sudoers}`
+**یەکەکان :** `{mod}`
 
-**الايبي :** {ip_address}
-**ماك :** {mac_address}
-**اسم المضيف :** {hostname}
-**منصة :** {sp}
-**المعالج :** {processor}
+**ئایبی :** {ip_address}
+**ماک :** {mac_address}
+**ناوی هۆست :** {hostname}
+**پلاتفۆرم :** {sp}
+**چارەسەرکەر :** {processor}
 **بنيان :** {architecture}
-**إصدار المنصة :** {platform_release}
-**إصدار المنصة :** {platform_version}
+**وەشانی پلاتفۆرم :** {platform_release}
+**وەشانی پلاتفۆرم :** {platform_version}
 
-        <b><u>sᴛᴏʀᴀɢᴇ</b><u/>
-**متاح :** {total[:4]} ɢɪʙ
-**مستخدم :** {used[:4]} ɢɪʙ
-**حر :** {free[:4]} ɢɪʙ
+        <b><u>کۆگا</b><u/>
+**بەردەست :** {total[:4]} ɢɪʙ
+**بەکارهێنەر :** {used[:4]} ɢɪʙ
+**ئازاد :** {free[:4]} ɢɪʙ
 
 **رام :** {ram}
-**النوى المادية :** {p_core}
-**مجموع النوى :** {t_core}
-**تردد وحدة المعالجة المركزية :** {cpu_freq}""",
+**ناوەکی فیزیکی :** {p_core}
+**کۆی گشتی ناوکەکان :** {t_core}
+**فرێکوێنسی سی پی یو :** {cpu_freq}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="مسح",
+                        text="سڕینەوە",
                         callback_data=f"forceclose abc|{message.from_user.id}",
                     ),
                 ]
