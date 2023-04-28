@@ -33,7 +33,7 @@ from .active import is_active_chat
 def admin_check(func: Callable) -> Callable:
     async def non_admin(_, message: Message):
         if not await is_active_chat(message.chat.id):
-            return await message.reply_text("لا يتم تشغيل البوت عبر دردشة الفيديو.")
+            return await message.reply_text("پیویستە تیڵ کرابیتە وە بۆ بە کارهێنانم")
 
         if message.from_user.id in SUDOERS:
             return await func(_, message)
@@ -51,7 +51,7 @@ def admin_check(func: Callable) -> Callable:
             return await func(_, message)
         else:
             return await message.reply_text(
-                "⎊ ليس لديك أذونات لإدارة محادثات الفيديو "
+                "⎊ تۆ مۆڵەتت نییە بۆ بەڕێوەبردنی گفتوگۆکانی پەیوەندییەکان "
             )
 
     return non_admin
@@ -73,7 +73,7 @@ def admin_check_cb(func: Callable) -> Callable:
             return
         if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
             return await query.answer(
-                "⎊ انت لست مشرف 🥺",
+                "⎊ تۆ ئەدمین نیت ",
                 show_alert=True,
             )
 
@@ -84,7 +84,7 @@ def admin_check_cb(func: Callable) -> Callable:
             return await func(_, query)
         else:
             return await query.answer(
-                "⎊ ليس لديك أذونات لإدارة محادثات الفيديو",
+                "⎊ تۆ مۆڵەتت نییە بۆ بەڕێوەبردنی گفتوگۆی پەیوەندییەکان",
                 show_alert=True,
             )
 
