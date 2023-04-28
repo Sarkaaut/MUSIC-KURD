@@ -60,12 +60,12 @@ from FallenMusic.Helpers.thumbnails import gen_qthumb, gen_thumb
 
 
 @app.on_message(
-    filters.command(["play", "gorani", "گورانی"]) | filters.command(["تشغيل","شغل","ش"],prefixes= ["/", "!","","#"])
+    filters.command(["play", "شغل", "تشغيل"]) | filters.command(["تشغيل","شغل","ش"],prefixes= ["/", "!","","#"])
     & ~filters.forwarded
     & ~filters.via_bot
 )
 async def play(_, message: Message):
-    fallen = await message.reply_text("⎊ کە میک چاوە روان بە ⚡")
+    fallen = await message.reply_text("⎊ جارٍ التحميل ⚡")
     try:
         await message.delete()
     except:
@@ -76,21 +76,21 @@ async def play(_, message: Message):
             get = await app.get_chat_member(message.chat.id, ASS_ID)
         except ChatAdminRequired:
             return await fallen.edit_text(
-                f"⎊ مۆڵەتم پێ بدە بۆ زیادکردن بۆ ئاکاونتی یارمەتیدەرەکە {BOT_NAME} یاریدەدەری {message.chat.title}."
+                f"⎊ اديني صلاحية الاضافة علشان اضيف المساعد {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
             )
         if get.status == ChatMemberStatus.BANNED:
             unban_butt = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text=f"هەڵوەشاندنەوەی باند {ASS_NAME}",
+                            text=f"الغاء حظر {ASS_NAME}",
                             callback_data=f"unban_assistant {message.chat.id}|{ASS_ID}",
                         ),
                     ]
                 ]
             )
             return await fallen.edit_text(
-                text=f"⎊ {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n⎊ ئایدی : `{ASS_ID}`\n⎊ ناوەکە : {ASS_MENTION}\n⎊ ناسنامە : @{ASS_USERNAME}\n\n⎊ باندی ئەکاونتی یاریدەدەرەکە لابە ...",
+                text=f"⎊ {BOT_NAME} الحساب المساعد محظور في {message.chat.title}\n\n⎊ الايدي : `{ASS_ID}`\n⎊ آلآسم : {ASS_MENTION}\n⎊ اليوزر : @{ASS_USERNAME}\n\n⎊ الغي حظر الحساب المساعد...",
                 reply_markup=unban_butt,
             )
     except UserNotParticipant:
@@ -105,28 +105,28 @@ async def play(_, message: Message):
                 invitelink = await app.export_chat_invite_link(message.chat.id)
             except ChatAdminRequired:
                 return await fallen.edit_text(
-                    f"⎊ مۆڵەتم پێ بدە بۆ زیادکردن بۆ ئاکاونتی یارمەتیدەرەکە {BOT_NAME} یاریدەدەری {message.chat.title}."
+                    f"⎊ اديني صلاحية الاضافة علشان اضيف المساعد {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
                 )
             except Exception as ex:
                 return await fallen.edit_text(
-                    f"بانگهێشتنامەکە شکستی هێنا {BOT_NAME} یاریدەدەرەکە {message.chat.title}.\n\n**هۆکار :** `{ex}`"
+                    f"فشلت الدعوة {BOT_NAME} المساعد {message.chat.title}.\n\n**آلسبب :** `{ex}`"
                 )
         if invitelink.startswith("https://t.me/+"):
             invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
         anon = await fallen.edit_text(
-            f"⎊ تکایە چاوەڕێی زیادکردنی ئەکاونتەکە بن\n\n {ASS_NAME} لە {message.chat.title}."
+            f"⎊ انتظر من فضلك يتم اضافة حساب المساعد\n\n {ASS_NAME} في {message.chat.title}."
         )
         try:
             await app2.join_chat(invitelink)
             await asyncio.sleep(2)
             await fallen.edit_text(
-                f"{ASS_NAME} ⎊ بەشداری کردووە ✅,\n\n⎊ دەستپێکردن..."
+                f"{ASS_NAME} ⎊ تم الانضمام ✅,\n\n⎊ بدء التشغيل..."
             )
         except UserAlreadyParticipant:
             pass
         except Exception as ex:
             return await fallen.edit_text(
-                f"بانگهێشتنامەکە شکستی هێنا {BOT_NAME} یاریدەدەرەکە {message.chat.title}.\n\n**هوکار :** `{ex}`"
+                f"فشلت الدعوة {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}.\n\n**السبب :** `{ex}`"
             )
         try:
             await app2.resolve_peer(invitelink)
@@ -143,7 +143,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 600) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"⎊ پەخشکردنەکە شکستی هێنا چونکە گۆرانییەکە زۆر درێژە {DURATION_LIMIT} گۆرانییەکی تر لێبدە {BOT_NAME}."
+                f"⎊ فشل التشغيل بسبب ان الاغنية طويلة {DURATION_LIMIT} شغل اغنية تانية {BOT_NAME}."
             )
 
         file_name = get_file_name(audio)
@@ -168,17 +168,17 @@ async def play(_, message: Message):
                 secmul *= 600
 
         except Exception as e:
-            return await fallen.edit_text(f"هە ڵە یە هه یە لیرە\n\n**هەڵە :** `{e}`")
+            return await fallen.edit_text(f"هناك خطأ\n\n**ايرور :** `{e}`")
 
         if (dur / 600) > DURATION_LIMIT:
             return await fallen.edit_text(
-                f"⎊ پەخشکردنەکە شکستی هێنا چونکە گۆرانییەکە زۆر درێژە {DURATION_LIMIT} گۆرانییەکی تر لێبدە {BOT_NAME}.."
+                f"⎊ فشل التشغيل بسبب ان الاغنية طويلة {DURATION_LIMIT} شغل اغنية تانية {BOT_NAME}.."
             )
         file_path = audio_dl(url)
     else:
         if len(message.command) < 2:
-            return await fallen.edit_text("⎊ ناوی گۆرانییەکە بنووسە 🎧")
-        await fallen.edit_text("⎊ کە میک چاوە روان بە ⚡")
+            return await fallen.edit_text("⎊ اكتب اسم الاغنية 🎧")
+        await fallen.edit_text("⎊ جارٍ التشغيل ⚡")
         query = message.text.split(None, 1)[1]
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -194,11 +194,11 @@ async def play(_, message: Message):
 
         except Exception as e:
             LOGGER.error(str(e))
-            return await fallen.edit("⎊ پرۆسێسکردن شکستی هێنا، دووبارە هەوڵبدەرەوە...")
+            return await fallen.edit("⎊ فشل في المعالجة جرب مرة أخرى...")
 
         if (dur / 600) > DURATION_LIMIT:
             return await fallen.edit(
-                f"⎊ پەخشکردنەکە شکستی هێنا چونکە گۆرانییەکە زۆر درێژە {DURATION_LIMIT} گۆرانییەکی تر لێبدە {BOT_NAME}.."
+                f"⎊ فشل التشغيل بسبب ان الاغنية طويلة {DURATION_LIMIT} شغل اغنية تانية {BOT_NAME}.."
             )
         file_path = audio_dl(url)
 
@@ -220,7 +220,7 @@ async def play(_, message: Message):
         qimg = await gen_qthumb(videoid, message.from_user.id)
         await message.reply_photo(
             photo=qimg,
-            caption=f"**⎊ زیادکراوە بۆ لیستی چاوەڕوانی لە {position}**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {ruser}",
+            caption=f"**⎊ تمت الإضافة إلى قائمة الانتظار في {position}**\n\n⎊ **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **المده :** `{duration}` دقيقه\n⎊ **مطلوب بواسطة :** {ruser}",
             reply_markup=buttons,
         )
     else:
@@ -234,15 +234,15 @@ async def play(_, message: Message):
 
         except NoActiveGroupCall:
             return await fallen.edit_text(
-                "**⎊ سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⎊ تکایە دڵنیابن لە کردنەوەی ڤیدیۆ چاتەکە**"
+                "**⎊ افتح المكالمة الصوتية اولاً **\n**⎊ يرجى التأكد من فتح محادثة الفيديو**"
             )
         except TelegramServerError:
             return await fallen.edit_text(
-                "⎊ کێشەیەک هەبوو هەوڵبدە پە یوە ندیە کە  دابخەیت و دووبارە بکەیتەوە"
+                "⎊ حدثت مشكلة جرب اقفل الكول وافتح تاني"
             )
         except UnMuteNeeded:
             return await fallen.edit_text(
-                f"⎊ {BOT_NAME} ئەکاونتی یاریدەدەرەکە میویت کراوە ,\n\n تکایە ئەکاونتی یاریدەدەرەکە میویتی بکەرەوە {ASS_MENTION} وە دووبارە هەوڵبدەرەوە"
+                f"⎊ {BOT_NAME} الحساب المساعد مكتوم,\n\nالرجاء فك كتم الحساب المساعد {ASS_MENTION} و المحاوله مرة اخري"
             )
 
         imgt = await gen_thumb(videoid, message.from_user.id)
@@ -250,7 +250,7 @@ async def play(_, message: Message):
         await add_active_chat(message.chat.id)
         await message.reply_photo(
             photo=imgt,
-            caption=f"‌‌‏‌‌‏\n**⎊ بە سە رکە وتی چالاک کرا 🎧**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {ruser}\n‌‌‏‌‌‏",
+            caption=f"‌‌‏‌‌‏≪⊶⌯━‌‌‏𖧊 ⦓ ᥉ρᎥժᥱᖇ ⦔ 𖧊━‌‌‏⌯⊷≫\n**⎊ تـم الـتـشـغـيـل 🎧**\n\n⎊ **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **المده :** `{duration}` دقيقه\n⎊ **بواسطه :** {ruser}\n‌‌‏‌‌‏≪⊶⌯━‌‌‏𖧊 ⦓ ᥉ρᎥժᥱᖇ ⦔ 𖧊━‌‌‏⌯⊷≫",
             reply_markup=buttons,
         )
 
