@@ -57,7 +57,7 @@ async def sudoadd(_, message: Message):
     try:
         SUDOERS.add(message.reply_to_message.from_user.id)
         await message.reply_text(
-            f"تم اضافة {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەران"
+            f"زیاد كراوه‌ {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەران"
         )
     except:
         return await message.reply_text("شکستی هێنا لە زیادکردنی بەکارهێنەری گە شە پێدە ری نویی")
@@ -85,7 +85,7 @@ async def sudodel(_, message: Message):
         try:
             SUDOERS.remove(int(user.id))
             return await message.reply_text(
-                f"⎊ إزالة  {user.mention} لە لیستی گەشەپێدەران "
+                f"⎊ لابردن  {user.mention} لە لیستی گەشەپێدەران "
             )
         except:
             return await message.reply_text(f"شکستی هێنا لە دەرهێنانی بەکارهێنەر لە تاوەکان")
@@ -98,7 +98,7 @@ async def sudodel(_, message: Message):
         try:
             SUDOERS.remove(int(user_id))
             return await message.reply_text(
-                f"⎊ ليس {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەران"
+                f"⎊ نەخێر {message.reply_to_message.from_user.mention} لە لیستی گەشەپێدەران"
             )
         except:
             return await message.reply_text(f"شکستی هێنا لە لابردنی بەکارهێنەر لە لیستی گەشەپێدەران")
@@ -107,7 +107,7 @@ async def sudodel(_, message: Message):
 @app.on_message(filters.command(["sudolist", "sudoers", "sudo"]) | filters.command(["گەشەپێدەران","لیستی گەشەپێدەران"],prefixes= ["/", "!","","#"]))
 async def sudoers_list(_, message: Message):
     hehe = await message.reply_text("⎊ بەدەستهێنانی لیستی گەشەپێدەران...")
-    text = "<u>⎊ **المالك :**</u>\n"
+    text = "<u>⎊ **خاوەن :**</u>\n"
     count = 0
     user = await app.get_users(OWNER_ID)
     user = user.first_name if not user.mention else user.mention
