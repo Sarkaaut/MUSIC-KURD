@@ -60,7 +60,7 @@ async def fallen_st(_, message: Message):
 ⎊ **بۆچوونەکان :** `{views}`
 ⎊ **بڵاوکردەوە لە :** {published}
 ⎊ **لینک :** [لە یوتیوب سەیری بکەن]({link})
-⎊ **القناة :** [{channel}]({channellink})
+⎊ **که‌ناڵه‌که‌ :** [{channel}]({channellink})
 
 ⎊ گەڕان بە {BOT_NAME}"""
                 key = InlineKeyboardMarkup(
