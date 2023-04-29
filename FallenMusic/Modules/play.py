@@ -83,14 +83,14 @@ async def play(_, message: Message):
                 [
                     [
                         InlineKeyboardButton(
-                            text=f"هەڵوەشاندنەوەی باند {ASS_NAME}",
+                            text=f"لابردنی باند {ASS_NAME}",
                             callback_data=f"unban_assistant {message.chat.id}|{ASS_ID}",
                         ),
                     ]
                 ]
             )
             return await fallen.edit_text(
-                text=f"⎊ {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n⎊ ئایدی : `{ASS_ID}`\n⎊ آلآسم : {ASS_MENTION}\n⎊ ناسنامە : @{ASS_USERNAME}\n\n⎊ باندی ئەکاونتی یاریدەدەرەکە لابە ن هه تا بۆتە کە بتوانی چالاک ببێت",
+                text=f"⎊ {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n⎊ ئایدی : `{ASS_ID}`\n⎊ ناوەکە : {ASS_MENTION}\n⎊ ناسنامە : @{ASS_USERNAME}\n\n⎊ باندی ئەکاونتی یاریدەدەرەکە لابە ن هه تا بۆتە کە بتوانی چالاک ببێت",
                 reply_markup=unban_butt,
             )
     except UserNotParticipant:
