@@ -53,7 +53,7 @@ async def speedtest_function(_, message):
     
 <u>**⎊ کلایەنت :**</u>
 **⎊ دابینکه‌ری خزمه‌تگوزاری ئینته‌رنێت :** {result['client']['isp']}
-**⎊ الدولة :** {result['client']['country']}
+**⎊وڵات :** {result['client']['country']}
   
 <u>**⎊ سێرڤەر :**</u>
 **⎊ ناوەکە :** {result['server']['name']}
