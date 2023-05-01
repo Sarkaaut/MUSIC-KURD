@@ -14,7 +14,7 @@
 <p align="center">
 <a href="https://telegram.me/ChanallBots"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
-فایلەکە پەرەی پێدراوە و لە لایە ن [SARKAUT](https://t.me/SARKAUT)
+فایلەکە پەرەی پێدراوە و لە لایە ن[SARKAUT] (https://t.me/SARKAUT)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"> <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
