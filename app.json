@@ -13,17 +13,17 @@
     "env": {
       "API_ID": {
         "description": " ضـع ايبي ايدي احصل علية من هنا https://my.telegram.org",
-        "value": "21917554",
+        "value": "",
         "required": true
       },
       "API_HASH": {
         "description": " ضـع ايبي هاش احصل علية من هنا https://my.telegram.org",
-        "value": "13684d4d35d48e1375cd090d2c27cb68",
+        "value": "",
         "required": true
       },
       "BOT_TOKEN": {
         "description": "ضـع تـوكـن بـوتـك هـنـا",
-        "value": "5999410466:AAGD4jOlTyO0BLey1if4EE-U8c3gpY6wiVQ",
+        "value": "",
         "required": true
       },
       "OWNER_ID": {
@@ -33,7 +33,7 @@
       },
       "SESSION": {
         "description": "ضـع جلسة البايروجرام احصل عليها من هنا @UU2xbot",
-        "value": "AgAsT3TJOLx7hoeIdsTGilkT-m-T64yXA6rcg6T6Yb2r-T_iDEuTMXMvVPJ4SIA12vRvvHfIHu8JeC0UrRrsVmqMhNK-EvkhInzZ9ytzn_THB2SBMHAqk9hemGtwfK9GvyKacUckZAQHbu0SJROzhtsgncLtkL9NsS9JTjsCDo27hExOC587Ox8JrZ-4coIAkTk8yHPEkKn8OOgiqKXYBxnkMRsmp8bVD53E4elk-Ffm1vLX3ZQNVxFk6utXmw_PBNkhMr0-bO4I1S1ROWnBDqdIOX8yGJ0TSpTgPxL6XShy7NWZu-EPr1TZpRaveYdT-xpCHGkLjDfyXkfRMS862DhIAAAAAU8Mzg0A",
+        "value": "",
         "required": true
       },
       "SUDO_USERS": {
