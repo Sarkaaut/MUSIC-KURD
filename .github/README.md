@@ -2,7 +2,6 @@
 # Bot Music Kurd
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Baxerbin+Bo+Bote-Music+Kurdish+)](https://github.com/Sarkaaut/KURD-MUSIC)
-
 <p align="center">
     ─「 KURD-MUSIC 」─
 </p>
