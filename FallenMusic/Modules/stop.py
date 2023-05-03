@@ -27,7 +27,7 @@ from FallenMusic import app, pytgcalls
 from FallenMusic.Helpers import _clear_, admin_check, close_key
 
 
-@app.on_message(filters.command(["stop", "end"]) | filters.command(["ايقاف","قف"],prefixes= ["/", "!","","#"]) & filters.group)
+@app.on_message(filters.command(["stop", "end"]) | filters.command(["وە ستان","wastan"],prefixes= ["/", "!","","#"]) & filters.group)
 @admin_check
 async def stop_str(_, message: Message):
     try:
