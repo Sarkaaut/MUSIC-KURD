@@ -76,7 +76,7 @@ async def play(_, message: Message):
             get = await app.get_chat_member(message.chat.id, ASS_ID)
         except ChatAdminRequired:
             return await fallen.edit_text(
-                f"⎊ مۆڵەتم پێ بدە بۆ زیادکردن بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                f"⎊ مۆڵەتم پێ بدە بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
             )
         if get.status == ChatMemberStatus.BANNED:
             unban_butt = InlineKeyboardMarkup(
@@ -105,7 +105,7 @@ async def play(_, message: Message):
                 invitelink = await app.export_chat_invite_link(message.chat.id)
             except ChatAdminRequired:
                 return await fallen.edit_text(
-                    f"⎊ مۆڵەتم پێ بدە بۆ زیادکردن بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                    f"⎊ مۆڵەتم پێ بدە بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
                 )
             except Exception as ex:
                 return await fallen.edit_text(
@@ -220,7 +220,7 @@ async def play(_, message: Message):
         qimg = await gen_qthumb(videoid, message.from_user.id)
         await message.reply_photo(
             photo=qimg,
-            caption=f"**⎊ زیادکراوە بۆ لیستی چاوەڕوانی لە {position}**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لەلایەن :** {ruser}",
+            caption=f"**⏳ زیادکراوە بۆ لیستی چاوەڕوانی لە {position}**\n\n🏷 **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⏱ **ماوە :** `{duration}` خولەک\n  **لەلایەن :** {ruser}",
             reply_markup=buttons,
         )
     else:
@@ -250,7 +250,7 @@ async def play(_, message: Message):
         await add_active_chat(message.chat.id)
         await message.reply_photo(
             photo=imgt,
-            caption=f"‌‌**⎊ چالاک کراوە 🎧**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {ruser}",
+            caption=f"‌‌** چالاک کراوە 💡**\n\n🏷 **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⏱ **ماوە :** `{duration}` خولەک\n **لە لایە ن :** {ruser}",
             reply_markup=buttons,
         )
 
