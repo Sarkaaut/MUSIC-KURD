@@ -114,7 +114,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_off(query.message.chat.id)
         await pytgcalls.pause_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⏸️ پەخشکردن وەستاوە بە کاتی \n \n📎 لە لایە ن : {query.from_user.mention} ",
+            text=f"⏸️ پەخشکردن وەستاوە بە کاتی \n \n🖇️ لە لایە ن : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
