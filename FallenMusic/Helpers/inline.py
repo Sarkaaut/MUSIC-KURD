@@ -76,7 +76,7 @@ gp_buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="• خاوەنی بۆت •", url="https://t.me/SARKAUT"
+            text="• یارمە تێدە ر •", url="https://t.me/HelperAccount"
         ),
         InlineKeyboardButton(text="• خاوەنی بۆت •", user_id=config.OWNER_ID),
     ],
