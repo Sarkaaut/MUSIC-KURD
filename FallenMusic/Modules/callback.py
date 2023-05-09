@@ -61,7 +61,7 @@ async def close_(_, CallbackQuery):
     if CallbackQuery.from_user.id != int(user_id):
         try:
             return await CallbackQuery.answer(
-                "⎊ باشترە ئەگەر لە سنوورەکانتدا بمێنیتەوە", show_alert=True
+                "❕ باشترە ئەگەر لە سنوورەکانتدا بمێنیتەوە", show_alert=True
             )
         except:
             return
@@ -102,7 +102,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_on(query.message.chat.id)
         await pytgcalls.resume_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⎊ پەخشکردن دەستی پێکردەوە ⚡\n \n⎊ لە لایە ن : {query.from_user.mention} ",
+            text=f"⎊ پەخشکردن دەستی پێکردەوە ⚡\n \n🖇️ لە لایە ن : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
@@ -114,7 +114,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_off(query.message.chat.id)
         await pytgcalls.pause_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⎊ پەخشکردن وەستاوە بە کاتی \n \n⎊ لە لایە ن : {query.from_user.mention} ",
+            text=f"⏸️ پەخشکردن وەستاوە بە کاتی \n \n📎 لە لایە ن : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
@@ -125,7 +125,7 @@ async def admin_cbs(_, query: CallbackQuery):
         except:
             pass
         await query.message.reply_text(
-            text=f"⎊  وە ستینرا\n \n⎊ لە لایە ن : {query.from_user.mention}",
+            text=f"⏹️  بە خش کردنە کە کوتای پی هینرا\n \n🖇️ لە لایە ن : {query.from_user.mention}",
             reply_markup=close_key,
         )
         await query.message.delete()
@@ -137,7 +137,7 @@ async def admin_cbs(_, query: CallbackQuery):
                 await _clear_(query.message.chat.id)
                 await pytgcalls.leave_group_call(query.message.chat.id)
                 await query.message.reply_text(
-                    text=f"⎊ گۆرانی دواتر \n \n⎊ لە لایە ن : {query.from_user.mention} \n\n**⎊ گۆرانی داهاتوو لە ڕیزەکەدا نییە ** {query.message.chat.title}, **پە یوە ندی چاتەکە بەجێبهێڵە**",
+                    text=f"⏭️ گۆرانی دواتر \n \n🖇️ لە لایە ن : {query.from_user.mention} \n\n**❗️ گۆرانی داهاتوو لە ڕیزەکەدا نییە ** {query.message.chat.title}, **پە یوە ندی چاتەکە بەجێدە هێڵی**",
                     reply_markup=close_key,
                 )
                 return await query.message.delete()
@@ -165,12 +165,12 @@ async def admin_cbs(_, query: CallbackQuery):
 
             img = await gen_thumb(videoid, user_id)
             await query.edit_message_text(
-                text=f"⎊ گۆرانی دواتر\n \n⎊ لە لایە ن : {query.from_user.mention}",
+                text=f"⏭️ گۆرانی دواتر\n \n🖇️ لە لایە ن : {query.from_user.mention}",
                 reply_markup=close_key,
             )
             return await query.message.reply_photo(
                 photo=img,
-                caption=f"**⎊ دە ستی پی کرد**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {req_by}",
+                caption=f"**⏭️ چالاک کراوە گۆرانی دواتر**\n\n🏷️ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⏱️ **ماوە :** `{duration}` خولەک\n🖇️ **لە لایە ن :** {req_by}",
                 reply_markup=buttons,
             )
 
@@ -190,11 +190,11 @@ async def unban_ass(_, CallbackQuery):
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
-            f"⎊ {ASS_NAME} باندە کە لابار بە سەرکەوتوویی لەلایەن {CallbackQuery.from_user.mention}.\n\⎊ ئێستا بۆتەکە کاردەکات ⚡"
+            f"🖇️ {ASS_NAME} باندە کە لابار بە سەرکەوتوویی لەلایەن {CallbackQuery.from_user.mention}.\n\⎊ ئێستا بۆتەکە کاردەکات ⚡"
         )
     else:
         return await CallbackQuery.answer(
-            "⎊ من مۆڵەتم نییە بۆ کردنەوەی بلۆککردنی بەکارهێنەران لەم چاتەدا ",
+            "🔰 من مۆڵەتم نییە بۆ کردنەوەی باندی بەکارهێنەران لەم چاتەدا ",
             show_alert=True,
         )
 
