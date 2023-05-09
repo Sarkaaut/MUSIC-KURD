@@ -30,7 +30,7 @@ from FallenMusic.Helpers.inline import close_key
 
 @app.on_message(filters.command("activevc") | filters.command(["پەیوەندی دەکات","چالاک"],prefixes= ["/", "!","","#"]) & SUDOERS)
 async def activevc(_, message: Message):
-    mystic = await message.reply_text("⎊ پەیوەندییەکان وەرگیراون ⚡")
+    mystic = await message.reply_text(" پەیوەندییەکان وەرگیراون ⚡")
     chats = await get_active_chats()
     text = ""
     j = 0
@@ -46,7 +46,7 @@ async def activevc(_, message: Message):
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
         j += 1
     if not text:
-        await mystic.edit_text("⎊ لەم کاتەدا هیچ پەیوەندییەک نییە")
+        await mystic.edit_text("💤 لەم کاتەدا هیچ پەیوەندییەک نییە")
     else:
         await mystic.edit_text(
             f"**لیستی پەیوەندییە چالاکەکان :**\n\n{text}",
