@@ -234,7 +234,7 @@ async def play(_, message: Message):
 
         except NoActiveGroupCall:
             return await fallen.edit_text(
-                "**🔊 سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⚠️ تکایە دڵنیابە لە کردنەوەی  پەیوەندی دەنگی گروپ**"
+                "**🔊 سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⚠️ تکایە دڵنیابە لە کردنەوەی پەیوەندی دەنگی گروپ**"
             )
         except TelegramServerError:
             return await fallen.edit_text(
