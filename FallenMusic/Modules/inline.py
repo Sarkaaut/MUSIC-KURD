@@ -39,7 +39,7 @@ async def inline_query_handler(_, query):
             await app.answer_inline_query(
                 query.id,
                 results=answers,
-                switch_pm_text="هەر شتێک لە یوتیوب بۆی دەگەڕێیت بنووسە ⚡",
+                switch_pm_text="هەر شتێک لە یوتیوب بۆی دەگەڕێیت بنووسە ✏️",
                 cache_time=10,
             )
         except:
@@ -68,14 +68,14 @@ async def inline_query_handler(_, query):
                 ]
             )
             searched_text = f"""
-⎊ **ناونیشانەکە :** [{title}]({link})
+🏷️ **ناونیشانەکە :** [{title}]({link})
 
-⎊ **ماوە :** `{duration}`خولەک
-⎊ **بینینەکان :** `{views}`
-⎊ **بڵاوکردەوە لە :** {published}
-⎊ **که‌ناڵه‌که‌ :** [{channel}]({channellink})
+⏱️ **ماوە :** `{duration}`خولەک
+👀 **بینینەکان :** `{views}`
+⎊🎦 **بڵاوکردەوە لە :** {published}
+🎥 **که‌ناڵه‌که‌ :** [{channel}]({channellink})
 
-<u>⎊ **لە لایە ن  {BOT_NAME}**</u>"""
+<u>🖇️ **لە لایە ن  {BOT_NAME}**</u>"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
