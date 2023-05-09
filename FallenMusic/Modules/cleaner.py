@@ -46,4 +46,4 @@ async def clear_misc(_, message: Message):
     if os_dir:
         for lel in os.listdir(pth):
             os.system("rm -rf *.webm *.jpg *.png")
-    await message.reply_text("⎊ هەمووی پاککرایەوە ")
+    await message.reply_text("✅ هەمووی پاککرایەوە ")
