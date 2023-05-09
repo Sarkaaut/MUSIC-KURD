@@ -40,6 +40,6 @@ async def res_str(_, message: Message):
     await stream_on(message.chat.id)
     await pytgcalls.resume_stream(message.chat.id)
     return await message.reply_text(
-        text=f"⎊ پەخشکردن دەستی پێکردەوە 🎧\n \n⎊ لە لایە ن : {message.from_user.mention} ",
+        text=f"⎊ پەخشکردن دەستی پێکردەوە 🎧\n \n🖇️ لە لایە ن : {message.from_user.mention} ",
         reply_markup=close_key,
     )
