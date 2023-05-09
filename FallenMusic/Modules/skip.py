@@ -66,12 +66,12 @@ async def skip_str(_, message: Message):
             return await pytgcalls.leave_group_call(message.chat.id)
 
         await message.reply_text(
-            text=f"⎊ گۆرانی دواتر \n \n⎊ لە لایە ن : {message.from_user.mention} \n\n**⎊ گۆرانی نییە** {message.chat.title}, **🔗**",
+            text=f"⏭ گۆرانی دواتر \n \n لە لایە ن : {message.from_user.mention} \n\n**⎊ گۆرانی نییە** {message.chat.title}, **🔗**",
             reply_markup=close_key,
         )
         img = await gen_thumb(videoid, user_id)
         return await message.reply_photo(
             photo=img,
-            caption=f"**⎊ بە سە رکە وتوی چالاک کرا ✅**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {req_by}",
+            caption=f"**⏭ چالاک کراوە گۆرانی دواتر**\n\n🏷️ **ناونی**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {req_by}",
             reply_markup=buttons,
         )
