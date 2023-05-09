@@ -102,7 +102,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_on(query.message.chat.id)
         await pytgcalls.resume_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⎊ پەخشکردن دەستی پێکردەوە ⚡\n \n🖇️ لە لایە ن : {query.from_user.mention} ",
+            text=f"▶️ پەخشکردن دەستی پێکردەوە \n \n🖇️ لە لایە ن : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
@@ -186,15 +186,15 @@ async def unban_ass(_, CallbackQuery):
             await app.unban_chat_member(int(chat_id), ASS_ID)
         except:
             return await CallbackQuery.answer(
-                "⎊ شکستی هینا ئەکاونتی یاریدەدەر باندکراوە",
+                "⚠️ شکستی هینا ئەکاونتی یاریدەدەر باندکراوە",
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
-            f"🖇️ {ASS_NAME} باندە کە لابار بە سەرکەوتوویی لەلایەن {CallbackQuery.from_user.mention}.\n\⎊ ئێستا بۆتەکە کاردەکات ⚡"
+            f"🖇️ {ASS_NAME} باندە کە لابار بە سەرکەوتوویی لەلایەن {CallbackQuery.from_user.mention}.\n ئێستا بۆتەکە کاردەکات ✅"
         )
     else:
         return await CallbackQuery.answer(
-            "🔰 من مۆڵەتم نییە بۆ کردنەوەی باندی بەکارهێنەران لەم چاتەدا ",
+            "من مۆڵەتم نییە بۆ کردنەوەی باندی بەکارهێنەران لەم چاتەدا 🔰",
             show_alert=True,
         )
 
@@ -208,7 +208,7 @@ async def help_menu(_, query: CallbackQuery):
 
     try:
         await query.edit_message_text(
-            text=f"⎊ بەخێربێیت {query.from_user.first_name} \n\n⎊ لە دوگمەکانی خوارەوە هەڵبژێرە ⬇️ ",
+            text=f"👤 بەخێربێیت {query.from_user.first_name} \n\n⬇️ لە دوگمەکانی خوارەوە هەڵبژێرە ",
             reply_markup=InlineKeyboardMarkup(helpmenu),
         )
     except Exception as e:
