@@ -90,7 +90,7 @@ async def play(_, message: Message):
                 ]
             )
             return await fallen.edit_text(
-                text=f" {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n⎊ ئایدی : `{ASS_ID}`\n🏷️ ناوەکە : {ASS_MENTION}\n🪪 ناسنامە : @{ASS_USERNAME}\n\n⚙️ باندی ئەکاونتی یاریدەدەرەکە لابە ن هه تا بۆتە کە بتوانی چالاک ببێت",
+                text=f" {BOT_NAME} ئەکاونتی یارمەتیدەر باند کراوە لە {message.chat.title}\n\n🆔 ئایدی : `{ASS_ID}`\n🏷️ ناوەکە : {ASS_MENTION}\n🪪 ناسنامە : @{ASS_USERNAME}\n\n⚙️ باندی ئەکاونتی یاریدەدەرەکە لابە ن هه تا بۆتە کە بتوانی چالاک ببێت",
                 reply_markup=unban_butt,
             )
     except UserNotParticipant:
@@ -120,7 +120,7 @@ async def play(_, message: Message):
             await app2.join_chat(invitelink)
             await asyncio.sleep(2)
             await fallen.edit_text(
-                f"{ASS_NAME} ⎊ بەشداری کردووە ✅,\n\n⎊ دەستپێکردن"
+                f"{ASS_NAME} بەشداری کردووە ✅,\n\n⎊ دەستپێکردن"
             )
         except UserAlreadyParticipant:
             pass
@@ -198,7 +198,7 @@ async def play(_, message: Message):
 
         if (dur / 600) > DURATION_LIMIT:
             return await fallen.edit(
-                f"⚠️ پەخشکردنەکە شکستی هێنا چونکە گۆرانییەکە زۆر درێژە {DURATION_LIMIT} گۆرانییەکی تر لێبدە {BOT_NAME}.."
+                f"⚠️ پەخشکردنەکە شکستی هێنا چونکە گۆرانییەکە زۆر درێژە {DURATION_LIMIT} گۆرانییەکی تر لێبدە {BOT_NAME}"
             )
         file_path = audio_dl(url)
 
@@ -234,7 +234,7 @@ async def play(_, message: Message):
 
         except NoActiveGroupCall:
             return await fallen.edit_text(
-                "**⎊ سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⎊ تکایە دڵنیابە لە کردنەوەی  پەیوەندی دەنگی گروپ ⚠️**"
+                "**🔊 سەرەتا پەیوەندی دەنگی بکەرەوە **\n**⚠️ تکایە دڵنیابە لە کردنەوەی  پەیوەندی دەنگی گروپ**"
             )
         except TelegramServerError:
             return await fallen.edit_text(
