@@ -105,6 +105,6 @@ async def on_stream_end(pytgcalls, update: Update):
         await app.send_photo(
             chat_id=chat_id,
             photo=img,
-            caption=f"**⎊ بە سە رکە وتوی چالاک کرا ✅**\n\n⎊ **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {req_by}",
+            caption=f"**چالاک کراوە **\n\n **ناونیشانەکە :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⎊ **ماوە :** `{duration}` خولەک\n⎊ **لە لایە ن :** {req_by}",
             reply_markup=buttons,
         )
