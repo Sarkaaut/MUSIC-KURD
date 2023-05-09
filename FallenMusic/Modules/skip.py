@@ -41,7 +41,7 @@ async def skip_str(_, message: Message):
             await _clear_(message.chat.id)
             await pytgcalls.leave_group_call(message.chat.id)
             await message.reply_text(
-                text=f"⏭️ گۆرانی دواتر \n \n🖇️ لە لایە ن : {message.from_user.mention} \n\n**✅ جالاک کراوە ** {message.chat.title}",
+                text=f"⏭️ گۆرانی دواتر \n \n🖇️ لە لایە ن : {message.from_user.mention} \n\n**❗️ گۆرانی نییە** {message.chat.title}",
                 reply_markup=close_key,
             )
         except:
