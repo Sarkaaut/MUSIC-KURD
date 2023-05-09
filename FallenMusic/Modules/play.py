@@ -76,7 +76,7 @@ async def play(_, message: Message):
             get = await app.get_chat_member(message.chat.id, ASS_ID)
         except ChatAdminRequired:
             return await fallen.edit_text(
-                f"⎊ مۆڵەتم پێ بدە بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                f" مۆڵەتم پێ بدە بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
             )
         if get.status == ChatMemberStatus.BANNED:
             unban_butt = InlineKeyboardMarkup(
@@ -105,7 +105,7 @@ async def play(_, message: Message):
                 invitelink = await app.export_chat_invite_link(message.chat.id)
             except ChatAdminRequired:
                 return await fallen.edit_text(
-                    f"⎊ مۆڵەتم پێ بدە بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
+                    f" مۆڵەتم پێ بدە بۆ زیادکردنی یارمەتیدەرەکە {BOT_NAME} ᴀssɪsᴛᴀɴᴛ ᴛᴏ {message.chat.title}."
                 )
             except Exception as ex:
                 return await fallen.edit_text(
