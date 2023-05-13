@@ -34,7 +34,7 @@ from FallenMusic import BOT_NAME, app
 async def inline_query_handler(_, query):
     text = query.query.strip().lower()
     answers = []
-    if text.strip() == "":
+    if text.strip() == "garan":
         try:
             await app.answer_inline_query(
                 query.id,
