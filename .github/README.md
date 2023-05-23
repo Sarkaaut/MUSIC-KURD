@@ -1,5 +1,5 @@
 ![KURD-MUSIC](https://telegra.ph/file/9ae65655540f3f71fcd35.jpg)
-# Bot Music Kurd
+
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Baxirben+Bo+Bot-Music+Kurd)](https://github.com/FM8Y/MUSIC-KURD)
 
